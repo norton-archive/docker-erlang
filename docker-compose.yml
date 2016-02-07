@@ -1,0 +1,12 @@
+version: "2"
+services:
+  erlang:
+    build:
+      context: ./erlang
+    environment:
+      - HOST_UID=${HOST_UID}
+      - HOST_GID=${HOST_GID}
+      - HOST_USER=${HOST_USER}
+      - HOST_GROUP=${HOST_GROUP}
+    volumes:
+      - .:/project
