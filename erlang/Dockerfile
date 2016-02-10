@@ -17,13 +17,14 @@ RUN echo /root > /etc/container_environment/HOME
 
 RUN curl --fail -L -O http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
 RUN dpkg -i erlang-solutions_1.0_all.deb
-RUN apt-get update && \
-    apt-get upgrade -y -o Dpkg::Options::="--force-confold" && \
-    apt-get install -y \
-    esl-erlang \
-    git \
-    unzip \
-    wget
+RUN apt-get update -q && \
+    apt-get install -q -y \
+            -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" \
+            build-essential \
+            esl-erlang \
+            git \
+            unzip \
+            wget
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
