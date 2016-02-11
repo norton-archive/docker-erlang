@@ -23,6 +23,7 @@ RUN apt-get update -q && \
             build-essential \
             esl-erlang \
             git \
+            libtool \
             unzip \
             wget
 RUN apt-get clean && \
